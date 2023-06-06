@@ -1,7 +1,16 @@
 *{
-    margin: 0;
+    margin: 0 0 10px 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+h1.emergency{
+    font-size: 2em;
+    text-align: center;
+}
+
+hr{
+    margin: 15px 0;
 }
 
 #root{
@@ -15,17 +24,22 @@
 
 .post{
     font-size: 24px;
-    display: flex;
+    display: flow;
     padding: 15px;
     border: 2px solid teal;
-    margin-top: 15px;
+    border-top: 8px solid teal;
+    margin-top: 25px;
     justify-content: space-between;
     align-items: center;
+    overflow-wrap: break-word;
 }
 
-.post__btn > button{
-    font-size: 14px;
-    border: 2px solid darkcyan;
-    padding: 10px;
-    cursor: pointer;
+.post__content > div{
+    margin: 10px 0 10px 0;
+    text-align: center;
 }
+
+.post__btn{
+    text-align: right;
+}
+
