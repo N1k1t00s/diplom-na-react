@@ -3,6 +3,7 @@ import Counter from "./components/Counter";
 import PostItem from "./components/PostItem";
 import './styles/App.css';
 import PostList from "./components/PostList";
+import MyButton from "./components/UI/button/MyButton";
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
             <form>
                 <input type="text" placeholder="Название поста"/>
                 <input type="text" placeholder="Описание поста"/>
-                <button>Создать пост</button>
+                <MyButton>Создать пост</MyButton>
             </form>
             <PostList posts={posts} title="Список постов"/>
         </div>
