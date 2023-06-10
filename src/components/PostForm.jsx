@@ -14,26 +14,26 @@ const PostForm = ({create}) => {
         setPost({title: '', body: ''})
     }
 
-    return (
-        <div>
-            <form>
-                <MyInput
-                    // Управляемый компонент
-                    value={post.title}
-                    onChange={e => setPost({...post, title: e.target.value})}
-                    type="text"
-                    placeholder="Название поста"
-                />
-                <MyInput
-                    value={post.body}
-                    onChange={e => setPost({...post, body: e.target.value})}
-                    type="text"
-                    placeholder="Описание поста"
-                />
-                <MyButton onClick={addNewPost}>Создать пост</MyButton>
-            </form>
-        </div>
-    );
-};
+        return (
+            <div>
+                <form>
+                    <MyInput
+                        // Управляемый компонент
+                        value={post.title}
+                        onChange={e => setPost({...post,title: e.target.value})}
+                        type="text"
+                        placeholder="Название поста"
+                    />
+                    <MyInput
+                        value={post.body}
+                        onChange={e => setPost({...post, body: e.target.value})}
+                        type="text"
+                        placeholder="Описание поста"
+                    />
+                    <MyButton onClick={addNewPost}>Создать</MyButton>
+                </form>
+            </div>
+        );
+    };
 
-export default PostForm;
+    export default PostForm;
