@@ -5,15 +5,19 @@ import PostForm from "./components/PostForm";
 import MySelect from "./components/UI/select/MySelect";
 import MyInput from "./components/UI/input/MyInput";
 import PostFilter from "./components/PostFilter";
+import MyModal from "./components/UI/MyModal/MyModal";
+import MyButton from "./components/UI/button/MyButton";
 
 function App() {
 
     const [posts, setPosts] = useState([])
-    const [filter, setFilter] = useState({sort:'', query: ''})
+    const [filter, setFilter] = useState({sort: '', query: ''})
+    const [modal, setModal] = useState(false);
+
 
     const sortedPosts = useMemo(() => {
-        if (filter.sort){
-            return [...posts].sort((a,b) => a[filter.sort].localeCompare(b[filter.sort]));
+        if (filter.sort) {
+            return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
         }
         return posts;
     }, [filter.sort, posts])
@@ -24,6 +28,7 @@ function App() {
 
     const createPost = (newPost) => {
         setPosts([...posts, newPost])
+        setModal(false);
     }
 
     const removePost = (post) => {
@@ -32,7 +37,12 @@ function App() {
 
     return (
         <div className="App">
-            <PostForm create={createPost}/>
+            <MyButton style={{marginTop: 30}} onClick={() => setModal(true)}>
+                Создать пользователя
+            </MyButton>
+            <MyModal visible={modal} setVisible={setModal}>
+                <PostForm create={createPost}/>
+            </MyModal>
             <hr/>
             <PostFilter
                 filter={filter}
