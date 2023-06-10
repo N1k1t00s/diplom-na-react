@@ -1,5 +1,4 @@
 import React from 'react';
-import MyTextarea from "./UI/textarea/MyTextarea";
 import MySelect from "./UI/select/MySelect";
 import MyInput from "./UI/input/MyInput";
 
