@@ -19,24 +19,32 @@ hr{
 }
 
 .App{
-    width: 800px;
+    width: 50%;
 }
 
 .post{
     font-size: 24px;
-    display: flow;
+    display: flex;
     padding: 15px;
     border: 2px solid teal;
     border-top: 8px solid teal;
     margin-top: 25px;
     justify-content: space-between;
-    align-items: center;
-    overflow-wrap: break-word;
+    overflow-y: auto;
+
 }
 
 .post__content > div{
     margin: 10px 0 10px 0;
+    text-align: justify;
+}
+
+div.post__content > strong{
+    font-size: 1.5em;
     text-align: center;
+    display: grid;
+    padding: 10px;
+    margin: 10px;
 }
 
 .post__btn{
@@ -60,3 +68,28 @@ hr{
     opacity: 0;
     transition: opacity 500ms ease-in;
 }
+
+.page__wrapper{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.page{
+    padding: 10px;
+    border: 1px solid teal;
+    cursor: pointer;
+}
+
+.page__current{
+    border: 2px solid orange;
+    font-weight: bold;
+}
+
+.container > span{
+    display: block;
+    text-align: right;
+    position: sticky;
+}
+
+

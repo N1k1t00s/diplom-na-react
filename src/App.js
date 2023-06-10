@@ -9,22 +9,29 @@ import PostService from "./API/PostService";
 import {usePosts} from "./hooks/usePost";
 import Loader from "./components/UI/Loader/Loader";
 import {useFetch} from "./hooks/useFetch";
+import {getPagesArray, getPageCount} from "./utils/pages";
 
 function App() {
 
     const [posts, setPosts] = useState([])
     const [filter, setFilter] = useState({sort: '', query: ''})
     const [modal, setModal] = useState(false);
-    const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query)
+    const [totalPages, setTotalPages] = useState(0);
+    const [limit, setLimit] = useState(10);
+    const [page, setPage] = useState(1);
+    const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
+    let pagesArray = getPagesArray(totalPages);
 
-    const [fetchPosts, isPostsLoading, postError] = useFetch(async () =>{
-        const posts = await PostService.getAll();
-        setPosts(posts);
+    const [fetchPosts, isPostsLoading, postError] = useFetch(async () => {
+        const response = await PostService.getAll(limit, page);
+        setPosts(response.data);
+        const totalCount = response.headers['x-total-count'];
+        setTotalPages(getPageCount(totalCount, limit));
     })
 
     useEffect(() => {
         fetchPosts()
-    }, [])
+    }, [page])
 
     const createPost = (newPost) => {
         setPosts([...posts, newPost])
@@ -35,26 +42,33 @@ function App() {
         setPosts(posts.filter(p => p.id !== post.id))
     }
 
-    return (
-        <div className="App">
-            <MyButton style={{marginTop: 30}} onClick={() => setModal(true)}>
-                Создать пользователя
-            </MyButton>
+    const changePage = (page) => {
+        setPage(page);
+    }
+
+    return (<div className="App">
+        <div className="container">
             <MyModal visible={modal} setVisible={setModal}>
                 <PostForm create={createPost}/>
             </MyModal>
-            <hr/>
             <PostFilter
                 filter={filter}
                 setFilter={setFilter}
             />
-            {postError && <h1 className="emergency">Произошла ошибка</h1>}
-            {isPostsLoading
-                ? <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
-                : <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>
-            }
+            <span>
+                <MyButton onClick={() => setModal(true)}>
+                    Создать пост
+                </MyButton>
+            </span>
         </div>
-    );
+        {postError && <h1 className="emergency">Произошла ошибка ${postError}</h1>}
+        {isPostsLoading ? <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div> :
+            <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>}
+        <div className="page__wrapper">{pagesArray.map(p => <span
+            onClick={() => changePage(p)}
+            key={p}
+            className={page === p ? 'page page__current' : 'page'}>{p}</span>)}</div>
+    </div>);
 }
 
 export default App;
