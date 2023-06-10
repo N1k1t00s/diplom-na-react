@@ -5,7 +5,9 @@ import PostForm from "./components/PostForm";
 import PostFilter from "./components/PostFilter";
 import MyModal from "./components/UI/MyModal/MyModal";
 import MyButton from "./components/UI/button/MyButton";
+import PostService from "./API/PostService";
 import {usePosts} from "./hooks/usePost";
+import Loader from "./components/UI/Loader/Loader";
 
 function App() {
 
@@ -13,14 +15,19 @@ function App() {
     const [filter, setFilter] = useState({sort: '', query: ''})
     const [modal, setModal] = useState(false);
     const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query)
+    const [isPostLoading, setIsPostsLoading] = useState(false);
 
     useEffect(() => {
         fetchPosts()
-    },[])
+    }, [])
 
-    async function fetchPosts(){
-        const posts = await PostService.getAll();
-        setPosts(posts.data);
+    async function fetchPosts() {
+        setIsPostsLoading(true);
+        setTimeout(async () => {
+            const posts = await PostService.getAll();
+            setPosts(posts);
+            setIsPostsLoading(false);
+        }, 1000)
     }
 
     const createPost = (newPost) => {
@@ -45,7 +52,10 @@ function App() {
                 filter={filter}
                 setFilter={setFilter}
             />
-            <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>
+            {isPostLoading
+                ? <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
+                : <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>
+            }
         </div>
     );
 }
