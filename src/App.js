@@ -4,6 +4,7 @@ import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
 import MySelect from "./components/UI/select/MySelect";
 import MyInput from "./components/UI/input/MyInput";
+import PostFilter from "./components/PostFilter";
 
 function App() {
 
@@ -37,10 +38,7 @@ function App() {
                 filter={filter}
                 setFilter={setFilter}
             />
-            {sortedAndSearchedPosts.length
-                ? <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>
-                : <h1 className="emergency">Посты не были найдены</h1>
-            }
+            <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>
         </div>
     );
 }
