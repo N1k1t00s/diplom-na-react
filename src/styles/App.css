@@ -31,20 +31,22 @@ hr{
     margin-top: 25px;
     justify-content: space-between;
     overflow-y: auto;
-
+    word-wrap: break-word;
 }
 
 .post__content > div{
     margin: 10px 0 10px 0;
     text-align: justify;
+    overflow-x: hidden;
 }
 
-div.post__content > strong{
+div.post__content > h1{
     font-size: 1.5em;
     text-align: center;
-    display: grid;
     padding: 10px;
     margin: 10px;
+    max-width: 700px;
+    width: 100%;
 }
 
 .post__btn{
@@ -52,11 +54,11 @@ div.post__content > strong{
 }
 
 .post-enter{
-    transform: translateY(-350px);
+    transform: translateX(-350px);
 }
 
 .post-enter-active{
-    transform: translateY(0px);
+    transform: translateX(0px);
     transition: all 500ms ease-in;
 }
 
@@ -86,10 +88,14 @@ div.post__content > strong{
     font-weight: bold;
 }
 
-.container > span{
-    display: block;
-    text-align: right;
-    position: sticky;
+.container{
+    padding-top: 15px;
 }
+
+div > form{
+    display: flex;
+    flex-direction: column;
+}
+
 
 

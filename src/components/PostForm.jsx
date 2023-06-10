@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import MyInput from "./UI/input/MyInput";
+import MyTextarea from "./UI/textarea/MyTextarea";
 import MyButton from "./UI/button/MyButton";
 
 const PostForm = ({create}) => {
@@ -17,14 +17,14 @@ const PostForm = ({create}) => {
         return (
             <div>
                 <form>
-                    <MyInput
+                    <MyTextarea
                         // Управляемый компонент
                         value={post.title}
                         onChange={e => setPost({...post,title: e.target.value})}
                         type="text"
                         placeholder="Название поста"
                     />
-                    <MyInput
+                    <MyTextarea
                         value={post.body}
                         onChange={e => setPost({...post, body: e.target.value})}
                         type="text"

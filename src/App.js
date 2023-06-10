@@ -9,7 +9,7 @@ import PostService from "./API/PostService";
 import {usePosts} from "./hooks/usePost";
 import Loader from "./components/UI/Loader/Loader";
 import {useFetch} from "./hooks/useFetch";
-import {getPagesArray, getPageCount} from "./utils/pages";
+import {getPageCount} from "./utils/pages";
 import Pagination from "./components/UI/pagination/Pagination";
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
 
     const [fetchPosts, isPostsLoading, postError] = useFetch(async (limit, page) => {
         const response = await PostService.getAll(limit, page);
+        console.log(response);
         setPosts(response.data);
         const totalCount = response.headers['x-total-count'];
         setTotalPages(getPageCount(totalCount, limit));
@@ -42,10 +43,6 @@ function App() {
         setPosts(posts.filter(p => p.id !== post.id))
     }
 
-    const changePage = (page) => {
-        setPage(page);
-    }
-
     return (<div className="App">
         <div className="container">
             <MyModal visible={modal} setVisible={setModal}>
@@ -55,16 +52,14 @@ function App() {
                 filter={filter}
                 setFilter={setFilter}
             />
-            <span>
-                <MyButton onClick={() => setModal(true)}>
-                    Создать пост
-                </MyButton>
-            </span>
+            <MyButton onClick={() => setModal(true)}>
+                Создать пост
+            </MyButton>
         </div>
         {postError && <h1 className="emergency">Произошла ошибка ${postError}</h1>}
         {isPostsLoading ? <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div> :
             <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>}
-        <Pagination page={page} changePage={changePage} totalPages={totalPages}/>
+        <Pagination page={page} changePage={setPage} totalPages={totalPages}/>
     </div>);
 }
 
