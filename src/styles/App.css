@@ -32,17 +32,12 @@ hr{
     margin-top: 25px;
     justify-content: space-between;
     overflow-y: auto;
-<<<<<<< HEAD
     word-wrap: break-word;
-=======
-
->>>>>>> 2768d4f9757f19021077c646a17e7563f301ce1a
 }
 
 .post__content > div{
     margin: 10px 0 10px 0;
     text-align: justify;
-<<<<<<< HEAD
     overflow-x: hidden;
 }
 
@@ -53,7 +48,6 @@ div.post__content > h1{
     margin: 10px;
     max-width: 700px;
     width: 100%;
-=======
 }
 
 div.post__content > strong{
@@ -62,7 +56,6 @@ div.post__content > strong{
     display: grid;
     padding: 10px;
     margin: 10px;
->>>>>>> 2768d4f9757f19021077c646a17e7563f301ce1a
 }
 
 .post__btn{
@@ -104,20 +97,19 @@ div.post__content > strong{
     font-weight: bold;
 }
 
-<<<<<<< HEAD
 .container{
     padding-top: 15px;
 }
 
-div > form{
+div > form {
     display: flex;
     flex-direction: column;
-=======
+}
+
 .container > span{
     display: block;
     text-align: right;
     position: sticky;
->>>>>>> 2768d4f9757f19021077c646a17e7563f301ce1a
 }
 
 
