@@ -8,7 +8,11 @@ const PostItem = (props) => {
     return (
         <div className="post">
             <div className="post__content">
+<<<<<<< HEAD
                 <h1>#{props.post.id} {props.post.title}</h1>
+=======
+                <strong>#{props.post.id} {props.post.title}</strong>
+>>>>>>> 2768d4f9757f19021077c646a17e7563f301ce1a
                 <div>
                     {props.post.body}
                 </div>

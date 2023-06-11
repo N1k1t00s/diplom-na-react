@@ -17,14 +17,22 @@ const PostForm = ({create}) => {
         return (
             <div>
                 <form>
+<<<<<<< HEAD
                     <MyTextarea
+=======
+                    <MyInput
+>>>>>>> 2768d4f9757f19021077c646a17e7563f301ce1a
                         // Управляемый компонент
                         value={post.title}
                         onChange={e => setPost({...post,title: e.target.value})}
                         type="text"
                         placeholder="Название поста"
                     />
+<<<<<<< HEAD
                     <MyTextarea
+=======
+                    <MyInput
+>>>>>>> 2768d4f9757f19021077c646a17e7563f301ce1a
                         value={post.body}
                         onChange={e => setPost({...post, body: e.target.value})}
                         type="text"
