@@ -1,13 +1,14 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import classes from "./MyHeader.module.css";
 
 const Header = (props) => {
     return (
         <div className={classes.myHeader} {...props}>
             <div className={classes.myHeaderNav} {...props}>
-                <Link to="/about">О сайте</Link>
-                <Link to="/posts">Посты</Link>
+                <NavLink to="/">Главная страница</NavLink>
+                <NavLink to="/about">О сайте</NavLink>
+                <NavLink to="/posts">Посты</NavLink>
             </div>
         </div>
     );
