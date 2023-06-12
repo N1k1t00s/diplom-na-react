@@ -3,7 +3,7 @@ import MyButton from "./UI/button/MyButton";
 import {useNavigate} from "react-router-dom"
 
 const PostItem = (props) => {
-    const router = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <div className="post">
@@ -14,7 +14,7 @@ const PostItem = (props) => {
                 </div>
             </div>
             <div className="post__btn">
-                <MyButton onClick={() => router(`/posts/${props.post.id}`)}>
+                <MyButton onClick={() => navigate(`/posts/${props.post.id}`)}>
                     Открыть
                 </MyButton>
                 <MyButton onClick={() => props.remove(props.post)}>

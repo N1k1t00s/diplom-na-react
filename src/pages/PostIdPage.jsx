@@ -17,10 +17,12 @@ const PostIdPage = () => {
 
     return (
         <div>
-            <h1>Вы открыли страницу поста с ID = {params.id}</h1>
             {isLoading
                 ? <Loader/>
-                : <div>{post.id} . {post.title} </div>
+                : <div>
+                    <h1>{post.id} . {post.title}</h1>
+                    <div>{post.body}</div>
+                </div>
             }
         </div>
     );

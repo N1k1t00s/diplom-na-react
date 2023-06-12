@@ -50,14 +50,6 @@ div.post__content > h1{
     width: 100%;
 }
 
-div.post__content > strong{
-    font-size: 1.5em;
-    text-align: center;
-    display: grid;
-    padding: 10px;
-    margin: 10px;
-}
-
 .post__btn{
     text-align: right;
 }
@@ -111,5 +103,4 @@ div > form {
     text-align: right;
     position: sticky;
 }
-
 
