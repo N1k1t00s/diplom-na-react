@@ -1,6 +1,32 @@
-# Getting Started with Create React App
+# Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Stage 1: 
+
+    install recommeended version node.js => https://nodejs.org/en
+
+Stage 2: 
+
+    Create a folder on a free hard drive and unzip or install the project via git at the command line.
+
+    Open Windows Explorer and navigate to the folder in which you want to open the command line.
+
+    Hold down the Shift key on your keyboard and right-click in an empty area of the folder.
+
+    From the context menu, choose "Open Command Window".
+
+    You can select "Open PowerShell window" instead if you prefer to use PowerShell instead of cmd.
+
+    The command line (or PowerShell) will open in the selected folder.
+
+    Write => git clone https://github.com/N1k1t00s/diplom-na-react.git
+
+Stage 3: 
+    
+    Write => npm install
+    
+    After everything is downloaded, write => npm start and wait a while, about a minute and a half
+
+Stage 4: Enjoy :)
 
 ## Available Scripts
 
