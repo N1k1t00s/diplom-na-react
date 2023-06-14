@@ -28,6 +28,30 @@ Stage 3:
 
 Stage 4: Enjoy :)
 
+## ISSUES
+
+If the git command is not recognized on the command line, it may be because the path to the Git executable is not in your PATH environment variable. To fix this, you need to add the path to the Git executable to your PATH variable. Here's how you can do this:
+
+    Open the "Control Panel" on your computer.
+
+    In the Control Panel, locate the "System" section and open it.
+
+    In the "System" window, select "Advanced System Settings" (or "System Properties").
+
+    In the window that opens, select the "Advanced" tab.
+
+    On the Advanced tab, locate the Environment Variables button and click it.
+
+    Under "Environment variables" locate the "PATH" variable under "System variables" and highlight it.
+
+    Click the "Change" button.
+
+    In the window that opens, click on "Add new entry".
+
+    Enter the path to the Git executable (usually C:\Program Files\Git\bin or C:\Program Files\Git\cmd) and click on "OK".
+
+    After that, close all windows by clicking on "OK" or "Apply".
+
 ## Available Scripts
 
 In the project directory, you can run:
