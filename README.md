@@ -2,7 +2,7 @@
 
 Stage 1: 
 
-    install recommeended version of [Nodejs](http://nodejs.org/en).
+install recommended version of [Node.js](http://nodejs.org/en).
 
 Stage 2: 
 
@@ -18,7 +18,7 @@ Stage 2:
 
     The command line (or PowerShell) will open in the selected folder.
 
-    Write => git clone https://github.com/N1k1t00s/diplom-na-react.git
+Write => git clone https://github.com/N1k1t00s/diplom-na-react.git
 
 Stage 3: 
     
