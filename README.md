@@ -2,7 +2,7 @@
 
 Stage 1: 
 
-    install recommeended version of [node.js](https://nodejs.org/en)
+    install recommeended version of [Node.js](https://nodejs.org/en).
 
 Stage 2: 
 
