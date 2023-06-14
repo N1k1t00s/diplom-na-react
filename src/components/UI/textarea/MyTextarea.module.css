@@ -1,8 +1,9 @@
-.myInput{
-    width: 100%;
+.myTextarea{
+    width: 400px;
+    height: 100px;
     font-size: 16px;
     padding: 5px 15px;
     margin: 5px 0;
     border: 1px solid teal;
-    justify-content: space-between;
+    word-wrap: break-word;
 }

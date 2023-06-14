@@ -15,28 +15,39 @@ hr{
 
 #root{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .App{
-    width: 800px;
+    width: 50%;
 }
 
 .post{
     font-size: 24px;
-    display: flow;
+    display: flex;
     padding: 15px;
     border: 2px solid teal;
     border-top: 8px solid teal;
     margin-top: 25px;
     justify-content: space-between;
-    align-items: center;
-    overflow-wrap: break-word;
+    overflow-y: auto;
+    word-wrap: break-word;
 }
 
 .post__content > div{
     margin: 10px 0 10px 0;
+    text-align: justify;
+    overflow-x: hidden;
+}
+
+div.post__content > h1{
+    font-size: 1.5em;
     text-align: center;
+    padding: 10px;
+    margin: 10px;
+    max-width: 700px;
+    width: 100%;
 }
 
 .post__btn{
@@ -44,11 +55,11 @@ hr{
 }
 
 .post-enter{
-    transform: translateY(-350px);
+    transform: translateX(-350px);
 }
 
 .post-enter-active{
-    transform: translateY(0px);
+    transform: translateX(0px);
     transition: all 500ms ease-in;
 }
 
@@ -60,3 +71,145 @@ hr{
     opacity: 0;
     transition: opacity 500ms ease-in;
 }
+
+.page__wrapper{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.page{
+    padding: 10px;
+    border: 1px solid teal;
+    cursor: pointer;
+}
+
+.page__current{
+    border: 2px solid orange;
+    font-weight: bold;
+}
+
+.container{
+    padding-top: 15px;
+}
+
+div > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.not-found{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.grid-container {
+    max-width: 50vw;
+    display: grid;
+    grid-template-rows: auto auto auto; /* 3 строки */
+    grid-template-columns: auto auto; /* 2 столбца */
+    grid-gap: 10px; /* Расстояние между ячейками */
+}
+
+.grid-item {
+    padding: 25px;
+    text-align: justify-all;
+    font-size: 20px;
+    border: 2px solid teal;
+}
+
+div.content {
+    display: contents;
+}
+
+div.content > p{
+    margin-top: 24px;
+    font-size: 24px;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer.sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12%;
+    height: 70px;
+    text-align: center;
+}
+
+.social-media a {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.social-media a:hover img {
+    transform: scale(1.2); /* Увеличение размера иконки */
+    transition: transform 0.1s ease-in-out; /* Плавный эффект перехода */
+}
+
+.social-media a:not(:hover) img {
+    transform: scale(1);
+    transition: transform 0.1s ease-in-out;
+}
+
+div.block-vw{
+    max-width: 50vw;
+}
+
+.text-block {
+    text-align: justify;
+    font-size: 20px;
+    text-indent: 2em;
+    word-spacing: 0.2em; /* отступ между словами */
+    line-height: 1.7; /* отступ между строками */
+}
+
+.block-video {
+    display: flex;
+    justify-content: center; /* выравнивание по горизонтали по центру */
+    align-items: center; /* выравнивание по вертикали по центру */
+    width: 100vw;
+    height: calc(100vh - 100px); /* высота экрана минус 100px (предположим, что есть заголовок с высотой 100px) */
+    overflow: hidden; /* скрыть часть видео, выходящую за пределы блока */
+}
+
+.video {
+    width: 100%;
+    height: available;
+    min-height: 100%; /* минимальная высота видео, чтобы оно заполняло весь блок */
+}
+
+.block-up-vw{
+    width: 100vw;
+}
+
+
+
+
+
+

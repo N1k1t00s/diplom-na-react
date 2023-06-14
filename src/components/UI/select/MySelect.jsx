@@ -1,19 +1,26 @@
 import React from 'react';
 import classes from "./MySelect.module.css";
+import { Select } from 'antd';
 
-const MySelect = ({options, defaultValue, value, onChange}) => {
+const { Option } = Select;
+
+const MySelect = ({ options, defaultValue, value, onChange }) => {
     return (
-            <select className={classes.mySelect}
+        <Select
+            // className={classes.mySelect}
+            style={{ width: 150}}
             value={value}
-            onChange={event => onChange(event.target.value)}
-            >
-                <option disabled value="">{defaultValue}</option>
-                {options.map(option =>
-                <option key={option.value} value={option.value}>
+            onChange={onChange}
+        >
+            <Option disabled value="">
+                {defaultValue}
+            </Option>
+            {options.map((option) => (
+                <Option key={option.value} value={option.value}>
                     {option.name}
-                </option>
-                )}
-            </select>
+                </Option>
+            ))}
+        </Select>
     );
 };
 
