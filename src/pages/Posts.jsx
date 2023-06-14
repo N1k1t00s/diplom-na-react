@@ -10,8 +10,8 @@ import {usePosts} from "../hooks/usePost";
 import Loader from "../components/UI/Loader/Loader";
 import {useFetch} from "../hooks/useFetch";
 import {getPageCount} from "../utils/pages";
-import Pagination from "../components/UI/pagination/Pagination";
-
+import MyPagination from "../components/UI/pagination/Pagination";
+import { Divider } from 'antd';
 
 function Posts() {
 
@@ -25,7 +25,6 @@ function Posts() {
 
     const [fetchPosts, isPostsLoading, postError] = useFetch(async (limit, page) => {
         const response = await PostService.getAll(limit, page);
-        console.log(response);
         setPosts(response.data);
         const totalCount = response.headers['x-total-count'];
         setTotalPages(getPageCount(totalCount, limit));
@@ -57,10 +56,12 @@ function Posts() {
                 Создать пост
             </MyButton>
         </div>
+        <Divider/>
         {postError && <h1 className="emergency">Произошла ошибка ${postError}</h1>}
-        {isPostsLoading ? <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div> :
-            <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>}
-        <Pagination page={page} changePage={setPage} totalPages={totalPages}/>
+        {isPostsLoading
+            ? <div><Loader/></div>
+            : <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Список постов"/>}
+        <MyPagination page={page} changePage={setPage} totalPages={totalPages}/>
     </div>);
 }
 

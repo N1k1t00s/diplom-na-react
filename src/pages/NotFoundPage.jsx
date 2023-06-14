@@ -7,7 +7,7 @@ const NotFoundPage = () => {
     return (
         <div className="not-found">
             <h1>404 - Страница не найдена</h1>
-            <p>Страница по адресу "{location.pathname}" не существует.</p>
+            <h3>Страницы по адресу "{location.pathname}" не существует.</h3>
         </div>
     );
 }

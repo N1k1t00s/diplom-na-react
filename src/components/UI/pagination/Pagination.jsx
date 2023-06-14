@@ -1,18 +1,33 @@
 import React from 'react';
-import {getPagesArray} from "../../../utils/pages";
+import { Pagination } from 'antd';
 
-const Pagination = ({totalPages, page, changePage}) => {
-    let pagesArray = getPagesArray(totalPages);
+const itemRender = (_, type, originalElement) => {
+    if (type === 'prev') {
+        return <a>Previous</a>;
+    }
+    if (type === 'next') {
+        return <a>Next</a>;
+    }
+    return originalElement;
+};
+
+const MyPagination = ({ totalPages, page, changePage }) => {
+    const handlePageChange = (pageNumber) => {
+        changePage(pageNumber);
+    };
 
     return (
-        <div className="page__wrapper">{pagesArray.map(p => <span
-                onClick={() => changePage(p)}
-                key={p}
-                className={page === p ? 'page page__current' : 'page'}>{p}
-            </span>
-        )}
+        <div className="page__wrapper">
+            <Pagination
+                total={totalPages}
+                current={page}
+                itemRender={itemRender}
+                pageSize={1}
+                onChange={handlePageChange}
+                showSizeChanger={false}
+            />
         </div>
     );
 };
 
-export default Pagination;
+export default MyPagination;

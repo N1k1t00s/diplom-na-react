@@ -10,3 +10,9 @@
 .myFooterNav{
     margin-left: auto;
 }
+
+.footerStyle{
+    text-align: center;
+    color: #fff;
+    background-color: #7dbcea;
+}
