@@ -46,9 +46,15 @@ function Posts() {
         setModal(false);
     }
 
-    const removePost = (post) => {
-        setPosts(posts.filter(p => p.id !== post.id))
-    }
+    const removePost = async (post) => {
+        try {
+            await PostService.delete(post.id);
+            setPosts(posts.filter(p => p.id !== post.id));
+        } catch (error) {
+            console.error("Ошибка при удалении поста:", error);
+        }
+    };
+
 
     return (<div className="App">
         <div className="container">

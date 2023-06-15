@@ -33,6 +33,7 @@ export default class PostService {
         const index = postsData.findIndex((post) => post.id === id);
         if (index !== -1) {
             const deletedPost = postsData.splice(index, 1);
+            localStorage.setItem("posts", JSON.stringify(postsData));
             return Promise.resolve({ data: deletedPost[0] });
         }
         return Promise.reject(new Error("Пост не найден"));
