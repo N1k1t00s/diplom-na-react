@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import MyTextarea from "./UI/textarea/MyTextarea";
 import MyButton from "./UI/button/MyButton";
+import posts from "../pages/Posts";
 
 const PostForm = ({create}) => {
     const [post, setPost] = useState({title: '', body: ''})
@@ -11,6 +12,7 @@ const PostForm = ({create}) => {
             ...post, id: Date.now()
         }
         create(newPost);
+        console.log(newPost);
         setPost({title: '', body: ''})
     }
 

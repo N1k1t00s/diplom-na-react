@@ -8,6 +8,8 @@ const MyTextarea = (props) => {
     return (
         <div>
             <TextArea
+                value={props.value} // Добавляем значение из пропсов
+                onChange={props.onChange} // Добавляем обработчик изменения из пропсов
                 placeholder={props.placeholder}
                 autoSize={{
                     minRows: 2,
