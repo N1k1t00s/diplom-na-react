@@ -8,12 +8,19 @@ const PostIdPage = () => {
     const params = useParams();
     const [post, setPost] = useState({});
     const [fetchPostById, isLoading, error] = useFetch(async (id) => {
-        const response = await PostService.getById(params.id);
-        setPost(response.data);
-    })
+        try {
+            const response = await PostService.getById(id);
+            if (response.data) {
+                setPost(response.data);
+            }
+        } catch (error) {
+            console.error("Ошибка при получении поста:", error);
+        }
+    });
+
     useEffect(() => {
         fetchPostById(params.id);
-    }, [])
+    }, []);
 
     return (
         <div>

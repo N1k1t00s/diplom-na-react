@@ -30,6 +30,13 @@ function Posts() {
         setTotalPages(getPageCount(totalCount, limit));
     })
 
+    const [postList, setPostList] = useState([]);
+    // остальной код компонента
+
+    const updatePostList = (newPost) => {
+        setPostList([...postList, newPost]);
+    };
+
     useEffect(() => {
         fetchPosts(limit, page);
     }, [page])
@@ -46,7 +53,7 @@ function Posts() {
     return (<div className="App">
         <div className="container">
             <MyModal visible={modal} setVisible={setModal}>
-                <PostForm create={createPost}/>
+                <PostForm create={createPost} updatePostList={updatePostList} />
             </MyModal>
             <PostFilter
                 filter={filter}
